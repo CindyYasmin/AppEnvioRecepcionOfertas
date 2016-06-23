@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppEnvioRecepcionOfertas", "AppEnvioRecepcionOfertas\AppEnvioRecepcionOfertas.csproj", "{0F198684-85BB-40B3-9192-29946995ABD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LogicaNegocio", "LogicaNegocio", "{00EADD39-44A5-4ECA-87B2-060919BB0CE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modelos", "Modelos", "{3702EEE7-D804-4195-A4C4-887A3C827493}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccesoBaseDatos", "AccesoBaseDatos", "{BBECB5B9-6A62-493A-A2ED-882394BF09D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{7294C1E0-B64B-4765-B0FA-EC7F72841074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{6FE4C39C-AF0C-4728-B1BE-7D698F037559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{3885C081-D047-4A84-919E-1D43F3995A83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerarDB", "GenerarDB\GenerarDB.csproj", "{D13BA6F3-E655-4A1D-95D6-FC9C2274937A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapping", "Mapping\Mapping.csproj", "{1E328855-743C-4DA6-89B0-801DC4D4CA6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F198684-85BB-40B3-9192-29946995ABD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F198684-85BB-40B3-9192-29946995ABD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F198684-85BB-40B3-9192-29946995ABD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F198684-85BB-40B3-9192-29946995ABD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7294C1E0-B64B-4765-B0FA-EC7F72841074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7294C1E0-B64B-4765-B0FA-EC7F72841074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7294C1E0-B64B-4765-B0FA-EC7F72841074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7294C1E0-B64B-4765-B0FA-EC7F72841074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE4C39C-AF0C-4728-B1BE-7D698F037559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE4C39C-AF0C-4728-B1BE-7D698F037559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE4C39C-AF0C-4728-B1BE-7D698F037559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE4C39C-AF0C-4728-B1BE-7D698F037559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3885C081-D047-4A84-919E-1D43F3995A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3885C081-D047-4A84-919E-1D43F3995A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3885C081-D047-4A84-919E-1D43F3995A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3885C081-D047-4A84-919E-1D43F3995A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D13BA6F3-E655-4A1D-95D6-FC9C2274937A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D13BA6F3-E655-4A1D-95D6-FC9C2274937A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D13BA6F3-E655-4A1D-95D6-FC9C2274937A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D13BA6F3-E655-4A1D-95D6-FC9C2274937A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E328855-743C-4DA6-89B0-801DC4D4CA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E328855-743C-4DA6-89B0-801DC4D4CA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E328855-743C-4DA6-89B0-801DC4D4CA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E328855-743C-4DA6-89B0-801DC4D4CA6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7294C1E0-B64B-4765-B0FA-EC7F72841074} = {00EADD39-44A5-4ECA-87B2-060919BB0CE9}
+		{6FE4C39C-AF0C-4728-B1BE-7D698F037559} = {00EADD39-44A5-4ECA-87B2-060919BB0CE9}
+		{3885C081-D047-4A84-919E-1D43F3995A83} = {3702EEE7-D804-4195-A4C4-887A3C827493}
+		{D13BA6F3-E655-4A1D-95D6-FC9C2274937A} = {BBECB5B9-6A62-493A-A2ED-882394BF09D1}
+		{1E328855-743C-4DA6-89B0-801DC4D4CA6D} = {3702EEE7-D804-4195-A4C4-887A3C827493}
+	EndGlobalSection
+EndGlobal
