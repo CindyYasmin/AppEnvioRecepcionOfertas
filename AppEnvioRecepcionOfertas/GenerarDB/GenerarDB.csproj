@@ -59,20 +59,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mapping\Mapping.csproj">
-      <Project>{1e328855-743c-4da6-89b0-801dc4d4ca6d}</Project>
-      <Name>Mapping</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Modelos\Modelos.csproj">
-      <Project>{3885c081-d047-4a84-919e-1d43f3995a83}</Project>
-      <Name>Modelos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repositorio\Repositorio.csproj">
-      <Project>{6fe4c39c-af0c-4728-b1be-7d698f037559}</Project>
-      <Name>Repositorio</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

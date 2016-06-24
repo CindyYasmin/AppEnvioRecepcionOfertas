@@ -32,9 +32,9 @@ namespace AppEnvioRecepcionOfertas.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -55,12 +55,12 @@ namespace AppEnvioRecepcionOfertas.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
-                : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
-                : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su número de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su número de teléfono."
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
+                : message == ManageMessageId.Error ? "An error has occurred."
+                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -116,14 +116,14 @@ namespace AppEnvioRecepcionOfertas.Controllers
             {
                 return View(model);
             }
-            // Generar el token y enviarlo
+            // Generate the token and send it
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
             if (UserManager.SmsService != null)
             {
                 var message = new IdentityMessage
                 {
                     Destination = model.Number,
-                    Body = "Su código de seguridad es: " + code
+                    Body = "Your security code is: " + code
                 };
                 await UserManager.SmsService.SendAsync(message);
             }
@@ -165,7 +165,7 @@ namespace AppEnvioRecepcionOfertas.Controllers
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
-            // Enviar un SMS a través del proveedor de SMS para verificar el número de teléfono
+            // Send an SMS through the SMS provider to verify the phone number
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
@@ -189,15 +189,13 @@ namespace AppEnvioRecepcionOfertas.Controllers
                 }
                 return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
             }
-            // Si llegamos a este punto, es que se ha producido un error, volvemos a mostrar el formulario
-            ModelState.AddModelError("", "No se ha podido comprobar el teléfono");
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "Failed to verify phone");
             return View(model);
         }
 
         //
-        // POST: /Manage/RemovePhoneNumber
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // GET: /Manage/RemovePhoneNumber
         public async Task<ActionResult> RemovePhoneNumber()
         {
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
@@ -272,7 +270,7 @@ namespace AppEnvioRecepcionOfertas.Controllers
                 AddErrors(result);
             }
 
-            // Si llegamos a este punto, es que se ha producido un error, volvemos a mostrar el formulario
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -281,8 +279,8 @@ namespace AppEnvioRecepcionOfertas.Controllers
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.RemoveLoginSuccess ? "Se ha quitado el inicio de sesión externo."
-                : message == ManageMessageId.Error ? "Se ha producido un error."
+                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
@@ -305,7 +303,7 @@ namespace AppEnvioRecepcionOfertas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
         {
-            // Solicitar la redirección al proveedor de inicio de sesión externo para vincular un inicio de sesión para el usuario actual
+            // Request a redirect to the external login provider to link a login for the current user
             return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
         }
 
@@ -333,8 +331,8 @@ namespace AppEnvioRecepcionOfertas.Controllers
             base.Dispose(disposing);
         }
 
-#region Aplicaciones auxiliares
-        // Se usan para protección XSRF al agregar inicios de sesión externos
+        #region Helpers
+        // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
         private IAuthenticationManager AuthenticationManager
@@ -384,6 +382,6 @@ namespace AppEnvioRecepcionOfertas.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
